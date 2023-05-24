@@ -13,3 +13,9 @@ double bernoulliTheorique(double p, int k);
 int papier();
 int feuille();
 int ciseaux();
+
+int demanderChoixUtilisateur();
+
+std::string getNomCoup(int coup);
+
+void afficherResultat(int choixUtilisateur, int choixOrdinateur);
