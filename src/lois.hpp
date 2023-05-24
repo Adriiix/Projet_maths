@@ -10,6 +10,10 @@ int de();
 int fac(int n);
 void binomialTheorique(int n, double p, int k);
 double bernoulliTheorique(double p, int k);
+
+double uniforme();
+int multinomiale(double proba1, double proba2, double proba3);
+
 int papier();
 int feuille();
 int ciseaux();
