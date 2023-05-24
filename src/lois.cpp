@@ -20,3 +20,35 @@ void binomialTheorique(int n, double p, int k) {
             << " dans une distribution binomiale avec n=" << n << " et p=" << p
             << " est " << binomial << std::endl;
 }
+
+double bernoulliTheorique(double p, int k) {
+  double q = 1 - p;
+  return pow(p, k) * pow(q, 1 - k);
+}
+
+int papier() {
+  int X;
+  if (bernoulliTheorique(0.3, 1) == 1) {
+    X = 2;
+  } else {
+    X = 1;
+  }
+
+  return X;
+}
+
+int feuille() {
+  int X;
+  if (bernoulliTheorique(1, 1) == 1) {
+    X = 2;
+  } else {
+    X = 1;
+  }
+
+  return X;
+}
+
+int ciseaux() {
+  int X = 0;
+  return X;
+}

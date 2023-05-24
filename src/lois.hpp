@@ -9,3 +9,7 @@
 int de();
 int fac(int n);
 void binomialTheorique(int n, double p, int k);
+double bernoulliTheorique(double p, int k);
+int papier();
+int feuille();
+int ciseaux();
