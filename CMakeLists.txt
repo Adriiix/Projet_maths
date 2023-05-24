@@ -4,8 +4,11 @@ project(pierreFeuilleCiseaux)
 # give a name to the project
 project(pierreFeuilleCiseaux)
 
-# Définition des fichiers sources
-set(SOURCES src/main.cpp)
+# Ajouter le répertoire contenant les fichiers d'en-tête
+include_directories(src)
+
+# Ajouter tous les fichiers sources du répertoire "src"
+file(GLOB SOURCES "src/*.cpp")
 
 # Création de l'exécutable
 add_executable(pierreFeuilleCiseaux ${SOURCES})
