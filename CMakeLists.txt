@@ -1,22 +1,14 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.20)
+project(pierreFeuilleCiseaux)
 
 # give a name to the project
-project(libRational)
+project(pierreFeuilleCiseaux)
 
-# add myLib
-message(STATUS "libRational cmake part ..." )
-add_subdirectory(libRational INTERFACE)
-include_directories(${CMAKE_SOURCE_DIR}/libRational/include) # important : other projects call by this cmake will know this include directory
+# Ajouter le répertoire contenant les fichiers d'en-tête
+include_directories(src)
 
-# add myCode
-message(STATUS "myExamples cmake part ..." )
-add_subdirectory(myExamples)
+# Ajouter tous les fichiers sources du répertoire "src"
+file(GLOB SOURCES "src/*.cpp")
 
-# add myTest
-find_package(GTest OPTIONAL_COMPONENTS)
-if(GTEST_FOUND)
-	message(STATUS "unitTests cmake part ..." )
-	add_subdirectory(unitTests)
-elseif()
-	message(WARNING "google test not found, skipping unitTests ..." )
-endif()
+# Création de l'exécutable
+add_executable(pierreFeuilleCiseaux ${SOURCES})
