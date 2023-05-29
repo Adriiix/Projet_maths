@@ -48,23 +48,6 @@ double uniforme() {
   return r;
 }
 
-int multinomiale(double proba1, double proba2, double proba3) {
-  // Probabilités de chaque choix
-  std::vector<double> probabilites = {proba1, proba2, proba3};
-
-  // Initialisation du générateur de nombres aléatoires
-  std::random_device rd;
-  std::mt19937 gen(rd());
-
-  // Création de la distribution multinomiale avec les probabilités données
-  std::discrete_distribution<int> dis(probabilites.begin(), probabilites.end());
-
-  // Génération d'un nombre aléatoire selon la distribution multinomiale
-  int r = dis(gen);
-
-  return r;
-}
-
 int papier() {
   int X;
   double valeurAleatoire = uniforme(); // Stocke la valeur générée
