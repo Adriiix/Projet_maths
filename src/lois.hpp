@@ -11,7 +11,6 @@ bool simulerBernoulli(double p);
 double exponentielle(double lambda);
 
 double uniforme();
-int multinomiale(double proba1, double proba2, double proba3);
 
 int pierre();
 int feuille();
