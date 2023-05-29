@@ -162,9 +162,9 @@ int ciseaux(int choixUtilisateur) {
 
   if (choixUtilisateur == 1) { // si le joueur a joué Feuille
     double valeurAleatoire = simulerPoisson(1.5);
-    if (valeurAleatoire <= 0) {
+    if (valeurAleatoire < 1) {
       X = 2; // Ciseaux
-    } else if (valeurAleatoire <= 2.5) {
+    } else if (valeurAleatoire <= 2.5 && valeurAleatoire>=1) {
       X = 0; // Pierre
     } else {
       X = 1; // Feuille
