@@ -1,7 +1,5 @@
 #include "lois.hpp"
 
-int de() { return rand() % 6 + 1; }
-
 int fac(int n) {
   if (n == 0 || n == 1) {
     return 1;

@@ -6,7 +6,6 @@
 #include <random>
 #include <stdlib.h>
 
-int de();
 int fac(int n);
 double bernoulli(double p, int k);
 bool simulerBernoulli(double p);
