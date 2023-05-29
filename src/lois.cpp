@@ -8,11 +8,6 @@ int fac(int n) {
   }
 }
 
-double bernoulli(double p, int k) {
-  double q = 1 - p;
-  return pow(p, k) * pow(q, 1 - k);
-}
-
 bool simulerBernoulli(double p) {
   std::random_device rd;
   std::mt19937 gen(rd());
