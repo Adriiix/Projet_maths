@@ -74,22 +74,26 @@ int ciseaux() {
   return X;
 }
 
-int demanderChoixUtilisateur() {
+int demanderChoixUtilisateur(std::vector<int> &historiqueUtilisateur) {
   std::cout << "Choisissez votre coup : p (Pierre), f (Feuille), c (Ciseaux)"
             << std::endl;
   char saisieUtilisateur;
   std::cin >> saisieUtilisateur;
 
   if (saisieUtilisateur == 'p' || saisieUtilisateur == 'P') {
+    historiqueUtilisateur.push_back(0);
     return 0; // Pierre
   } else if (saisieUtilisateur == 'f' || saisieUtilisateur == 'F') {
+    historiqueUtilisateur.push_back(1);
     return 1; // Feuille
   } else if (saisieUtilisateur == 'c' || saisieUtilisateur == 'C') {
+    historiqueUtilisateur.push_back(2);
     return 2; // Ciseaux
   } else {
     std::cout << "Choix invalide. Veuillez réessayer." << std::endl;
-    return demanderChoixUtilisateur(); // Appel récursif pour demander une
-                                       // nouvelle saisie
+    return demanderChoixUtilisateur(
+        historiqueUtilisateur); // Appel récursif pour demander une
+                                // nouvelle saisie
   }
 }
 

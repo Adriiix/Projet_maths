@@ -9,15 +9,12 @@
 int fac(int n);
 bool simulerBernoulli(double p);
 double exponentielle(double lambda);
-
 double uniforme();
 
 int pierre();
 int feuille();
 int ciseaux();
 
-int demanderChoixUtilisateur();
-
+int demanderChoixUtilisateur(std::vector<int> &historiqueUtilisateur);
 std::string getNomCoup(int coup);
-
 void afficherResultat(int choixUtilisateur, int choixOrdinateur);

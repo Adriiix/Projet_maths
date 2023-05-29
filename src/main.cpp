@@ -1,4 +1,5 @@
 #include "lois.hpp"
+#include <cstddef>
 #include <iostream>
 #include <iterator>
 #include <vector>
@@ -13,9 +14,10 @@ int main() {
   int choixOrdinateur = 0;  // Choix de l'ordinateur
   int scoreUtilisateur = 0; // Score de l'utilisateur
   int scoreOrdinateur = 0;  // Score de l'ordinateur
+  std::vector<int> historiqueUtilisateur;
 
   while (scoreUtilisateur < 3 && scoreOrdinateur < 3) {
-    int choixUtilisateur = demanderChoixUtilisateur();
+    int choixUtilisateur = demanderChoixUtilisateur(historiqueUtilisateur);
 
     if (choixOrdinateur == 0) { // si l'ordi a joué Pierre au tour précédent
       choixOrdinateur = pierre();
@@ -48,6 +50,10 @@ int main() {
     std::cout << "Vous avez gagné la partie !" << std::endl;
   } else {
     std::cout << "L'ordinateur a gagné la partie !" << std::endl;
+  }
+
+  for (size_t i = 0; i < historiqueUtilisateur.size(); i++) {
+    std::cout << historiqueUtilisateur[i] << std::endl;
   }
 
   return 0;
