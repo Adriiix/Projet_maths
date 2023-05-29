@@ -18,7 +18,7 @@ int main() {
     int choixUtilisateur = demanderChoixUtilisateur();
 
     if (choixOrdinateur == 0) {
-      choixOrdinateur = papier();
+      choixOrdinateur = pierre();
     } else if (choixOrdinateur == 1) {
       choixOrdinateur = feuille();
     } else {

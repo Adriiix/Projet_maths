@@ -55,27 +55,27 @@ double exponentielle(double lambda) {
   return dis(gen);
 }
 
-int papier() {
+int pierre() {
   int X;
   double valeurAleatoire = uniforme(); // Stocke la valeur générée
   if (valeurAleatoire < 0.33) {
-    X = 0;
+    X = 0; // Pierre
   } else if (valeurAleatoire < 0.66) {
-    X = 1;
+    X = 1; // Feuille
   } else {
-    X = 2;
+    X = 2; // Ciseaux
   }
   return X;
 }
 
 int feuille() {
   int X;
-
   if (simulerBernoulli(0.6)) {
-    X = 2;
+    X = 2; // Ciseaux
   } else {
-    X = 0;
+    X = 0; // Pierre
   }
+  // Feuille ne pas être rejoué
   return X;
 }
 
@@ -83,11 +83,11 @@ int ciseaux() {
   int X;
   double valeurAleatoire = exponentielle(0.6);
   if (valeurAleatoire <= 1) {
-    X = 1;
+    X = 1; // Feuille
   } else if (valeurAleatoire <= 2) {
-    X = 0;
+    X = 0; // Pierre
   } else {
-    X = 2;
+    X = 2; // Ciseaux
   }
   return X;
 }
