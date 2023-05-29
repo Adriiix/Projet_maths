@@ -30,11 +30,21 @@ double uniforme() {
   return r;
 }
 
+// double exponentielle(double lambda) {
+//   std::random_device rd;
+//   std::mt19937 gen(rd());
+//   std::exponential_distribution<double> dis(lambda);
+//   return dis(gen);
+// }
+
 double exponentielle(double lambda) {
-  std::random_device rd;
-  std::mt19937 gen(rd());
-  std::exponential_distribution<double> dis(lambda);
-  return dis(gen);
+  double uniform = uniforme(); // Générer une valeur uniforme entre 0 et 1
+
+  // Utiliser la formule de l'inverse de la fonction de répartition de la loi
+  // exponentielle
+  double exponentielleValue = -log(1.0 - uniform) / lambda;
+
+  return exponentielleValue;
 }
 
 int simulerPoisson(double lambda) {

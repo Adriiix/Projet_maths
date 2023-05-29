@@ -6,10 +6,6 @@
 
 int main() {
 
-  // for (int i = 0; i < 20; i++) {
-  //   std::cout << exponentielle(0.6) << std::endl;
-  // }
-
   // P = 0, F = 1, C = 2
   int choixOrdinateur = 0;  // Choix de l'ordinateur
   int scoreUtilisateur = 0; // Score de l'utilisateur
