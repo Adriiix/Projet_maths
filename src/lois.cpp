@@ -48,6 +48,20 @@ double uniforme() {
   return r;
 }
 
+int poisson(double lambda) {
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::poisson_distribution<int> dis(lambda);
+  return dis(gen);
+}
+
+double exponentielle(double lambda) {
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::exponential_distribution<double> dis(lambda);
+  return dis(gen);
+}
+
 int papier() {
   int X;
   double valeurAleatoire = uniforme(); // Stocke la valeur générée
@@ -58,7 +72,6 @@ int papier() {
   } else {
     X = 2;
   }
-
   return X;
 }
 
@@ -74,7 +87,15 @@ int feuille() {
 }
 
 int ciseaux() {
-  int X = 0;
+  int X;
+  double valeurAleatoire = exponentielle(0.6);
+  if (valeurAleatoire <= 1) {
+    X = 1;
+  } else if (valeurAleatoire <= 2) {
+    X = 0;
+  } else {
+    X = 2;
+  }
   return X;
 }
 

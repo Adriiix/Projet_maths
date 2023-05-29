@@ -3,7 +3,18 @@
 #include <iterator>
 #include <vector>
 
+double exponentielle(double lambda) {
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::exponential_distribution<double> dis(lambda);
+  return dis(gen);
+}
+
 int main() {
+
+  // for (int i = 0; i < 20; i++) {
+  //   std::cout << exponentielle(0.6) << std::endl;
+  // }
 
   // P = 0, F = 1, C = 2
   int choixOrdinateur = 0;  // Choix de l'ordinateur

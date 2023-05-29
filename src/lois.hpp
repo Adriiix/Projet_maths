@@ -11,6 +11,8 @@ int fac(int n);
 void binomialTheorique(int n, double p, int k);
 double bernoulli(double p, int k);
 bool simulerBernoulli(double p);
+int poisson(double lambda);
+double exponentielle(double lambda);
 
 double uniforme();
 int multinomiale(double proba1, double proba2, double proba3);
