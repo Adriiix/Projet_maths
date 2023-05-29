@@ -71,12 +71,35 @@ int simulerPoisson(double lambda) {
   return k;
 }
 
-double simulerLoiNormale(double moyenne, double ecartType) {
-  std::random_device rd;
-  std::mt19937 gen(rd());
-  std::normal_distribution<double> dis(moyenne, ecartType);
+// double simulerLoiNormale(double moyenne, double ecartType) {
+//   std::random_device rd;
+//   std::mt19937 gen(rd());
+//   std::normal_distribution<double> dis(moyenne, ecartType);
 
-  return dis(gen);
+//   return dis(gen);
+// }
+
+double simulerLoiNormale(double moyenne, double ecartType) {
+  double u1, u2;
+  double z0, z1;
+
+  // Génération de deux variables aléatoires uniformes indépendantes dans
+  // l'intervalle [0, 1)
+  do {
+    u1 = uniforme();
+    u2 = uniforme();
+  } while (u1 <=
+           std::numeric_limits<double>::epsilon()); // Vérification pour éviter
+                                                    // le logarithme de zéro
+
+  // Calcul des variables aléatoires normalement distribuées
+  z0 = sqrt(-2 * log(u1)) * cos(2 * M_PI * u2);
+  z1 = sqrt(-2 * log(u1)) * sin(2 * M_PI * u2);
+
+  // Application de la transformation linéaire pour ajuster la moyenne et
+  // l'écart type
+  double x = moyenne + ecartType * z0;
+  return x;
 }
 
 int pierre(int choixUtilisateur) {
