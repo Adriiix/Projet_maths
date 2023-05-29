@@ -48,13 +48,6 @@ double uniforme() {
   return r;
 }
 
-int poisson(double lambda) {
-  std::random_device rd;
-  std::mt19937 gen(rd());
-  std::poisson_distribution<int> dis(lambda);
-  return dis(gen);
-}
-
 double exponentielle(double lambda) {
   std::random_device rd;
   std::mt19937 gen(rd());
