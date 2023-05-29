@@ -15,18 +15,12 @@ int main() {
   int scoreUtilisateur = 0; // Score de l'utilisateur
   int scoreOrdinateur = 0;  // Score de l'ordinateur
   std::vector<int> historiqueUtilisateur;
+  int increment = 0;
 
   while (scoreUtilisateur < 3 && scoreOrdinateur < 3) {
     int choixUtilisateur = demanderChoixUtilisateur(historiqueUtilisateur);
 
-    if (choixOrdinateur == 0) { // si l'ordi a joué Pierre au tour précédent
-      choixOrdinateur = pierre();
-    } else if (choixOrdinateur ==
-               1) { // si l'ordi a joué Feuille au tour précédent
-      choixOrdinateur = feuille();
-    } else { // si l'ordi a joué Ciseaux au tour précédent
-      choixOrdinateur = ciseaux();
-    }
+    definirChoixOrdinateur(choixOrdinateur);
 
     afficherResultat(choixUtilisateur, choixOrdinateur);
 

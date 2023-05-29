@@ -74,6 +74,37 @@ int ciseaux() {
   return X;
 }
 
+// int choixSuivant(int choixUtilisateurPrecedent, int choixOrdinateurPrecedent)
+// {
+//   if (choixUtilisateurPrecedent == 0 && choixOrdinateurPrecedent == 0) {
+//     // Les deux joueurs ont joué Pierre au tour précédent
+//     // Définir ici la logique de choix suivant de l'ordinateur
+//     // Par exemple, si l'ordinateur a 60% de chances de jouer Feuille et 40%
+//     de chances de jouer Ciseaux : if (simulerBernoulli(0.6)) {
+//       return 1; // Feuille
+//     } else {
+//       return 2; // Ciseaux
+//     }
+//   } else if (choixUtilisateurPrecedent == 0 && choixOrdinateurPrecedent == 1)
+//   {
+//     // Situation spécifique lorsque l'utilisateur a joué Pierre et
+//     l'ordinateur a joué Feuille au tour précédent
+//     // Définir ici la logique de choix suivant de l'ordinateur pour cette
+//     situation
+//     // Par exemple, si l'ordinateur a 70% de chances de jouer Pierre et 30%
+//     de chances de jouer Ciseaux : if (simulerBernoulli(0.7)) {
+//       return 0; // Pierre
+//     } else {
+//       return 2; // Ciseaux
+//     }
+//   } else {
+//     // Situation par défaut pour les autres cas
+//     // Utiliser la logique existante pour déterminer le choix suivant de
+//     l'ordinateur return choixOrdinateurPrecedent; // Utiliser le choix
+//     précédent de l'ordinateur
+//   }
+// }
+
 int demanderChoixUtilisateur(std::vector<int> &historiqueUtilisateur) {
   std::cout << "Choisissez votre coup : p (Pierre), f (Feuille), c (Ciseaux)"
             << std::endl;
@@ -119,5 +150,16 @@ void afficherResultat(int choixUtilisateur, int choixOrdinateur) {
     std::cout << "Vous avez gagné !" << std::endl;
   } else {
     std::cout << "L'ordinateur a gagné !" << std::endl;
+  }
+}
+
+int definirChoixOrdinateur(int &choixOrdinateur) {
+  if (choixOrdinateur == 0) { // si l'ordi a joué Pierre au tour précédent
+    choixOrdinateur = pierre();
+  } else if (choixOrdinateur ==
+             1) { // si l'ordi a joué Feuille au tour précédent
+    choixOrdinateur = feuille();
+  } else { // si l'ordi a joué Ciseaux au tour précédent
+    choixOrdinateur = ciseaux();
   }
 }
