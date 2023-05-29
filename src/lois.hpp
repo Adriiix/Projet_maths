@@ -18,3 +18,4 @@ int ciseaux();
 int demanderChoixUtilisateur(std::vector<int> &historiqueUtilisateur);
 std::string getNomCoup(int coup);
 void afficherResultat(int choixUtilisateur, int choixOrdinateur);
+int definirChoixOrdinateur(int &choixOrdinateur);
