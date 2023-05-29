@@ -21,9 +21,18 @@ void binomialTheorique(int n, double p, int k) {
             << " est " << binomial << std::endl;
 }
 
-double bernoulliTheorique(double p, int k) {
+double bernoulli(double p, int k) {
   double q = 1 - p;
   return pow(p, k) * pow(q, 1 - k);
+}
+
+bool simulerBernoulli(double p) {
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_real_distribution<double> dis(0.0, 1.0);
+
+  double randomNum = dis(gen);
+  return randomNum <= p;
 }
 
 double uniforme() {
@@ -72,16 +81,14 @@ int papier() {
 
 int feuille() {
   int X;
-  double valeurAleatoire = uniforme(); // Stocke la valeur générée
-  if (valeurAleatoire < 0.33) {
+  double valeurAleatoire = bernoulli(0.7, 1); // Stocke la valeur générée
+  if (valeurAleatoire > 0.7) {
     X = 0;
-  } else if (valeurAleatoire < 0.66) {
-    X = 1;
   } else {
     X = 2;
-  }
 
-  return X;
+    return X;
+  }
 }
 
 int ciseaux() {
