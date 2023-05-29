@@ -47,12 +47,28 @@ double exponentielle(double lambda) {
   return exponentielleValue;
 }
 
-int simulerPoisson(double lambda) {
-  std::random_device rd;
-  std::mt19937 gen(rd());
-  std::poisson_distribution<int> dis(lambda);
+// int simulerPoisson(double lambda) {
+//   std::random_device rd;
+//   std::mt19937 gen(rd());
+//   std::poisson_distribution<int> dis(lambda);
 
-  return dis(gen);
+//   return dis(gen);
+// }
+
+int simulerPoisson(double lambda) {
+  double uniform = uniforme(); // Générer une valeur uniforme entre 0 et 1
+
+  // Utiliser la méthode de la loi de Poisson inverse
+  double p = exp(-lambda);
+  int k = 0;
+  double cumulativeProb = p;
+  while (uniform > cumulativeProb) {
+    k++;
+    p *= lambda / k;
+    cumulativeProb += p;
+  }
+
+  return k;
 }
 
 double simulerLoiNormale(double moyenne, double ecartType) {
