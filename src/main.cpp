@@ -3,25 +3,12 @@
 #include <iterator>
 #include <vector>
 
-bool simulerBernoulli(double p) {
-  std::random_device rd;
-  std::mt19937 gen(rd());
-  std::uniform_real_distribution<double> dis(0.0, 1.0);
-
-  double randomNum = dis(gen);
-  return randomNum <= p;
-}
-
 int main() {
 
   // P = 0, F = 1, C = 2
   int choixOrdinateur = 0;  // Choix de l'ordinateur
   int scoreUtilisateur = 0; // Score de l'utilisateur
   int scoreOrdinateur = 0;  // Score de l'ordinateur
-
-  for (int i = 0; i < 10; i++) {
-    std::cout << simulerBernoulli(0.5) << std::endl;
-  }
 
   while (scoreUtilisateur < 3 && scoreOrdinateur < 3) {
     int choixUtilisateur = demanderChoixUtilisateur();

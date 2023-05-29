@@ -81,14 +81,13 @@ int papier() {
 
 int feuille() {
   int X;
-  double valeurAleatoire = bernoulli(0.7, 1); // Stocke la valeur générée
-  if (valeurAleatoire > 0.7) {
-    X = 0;
-  } else {
-    X = 2;
 
-    return X;
+  if (simulerBernoulli(0.6)) {
+    X = 2;
+  } else {
+    X = 0;
   }
+  return X;
 }
 
 int ciseaux() {
