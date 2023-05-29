@@ -14,13 +14,12 @@ int main() {
   int choixOrdinateur = 0;  // Choix de l'ordinateur
   int scoreUtilisateur = 0; // Score de l'utilisateur
   int scoreOrdinateur = 0;  // Score de l'ordinateur
-  std::vector<int> historiqueUtilisateur;
-  int increment = 0;
+  int choixUtilisateur = 0;
 
   while (scoreUtilisateur < 3 && scoreOrdinateur < 3) {
-    int choixUtilisateur = demanderChoixUtilisateur(historiqueUtilisateur);
+    choixUtilisateur = demanderChoixUtilisateur();
 
-    definirChoixOrdinateur(choixOrdinateur);
+    definirChoixOrdinateur(choixOrdinateur, choixUtilisateur);
 
     afficherResultat(choixUtilisateur, choixOrdinateur);
 
@@ -44,10 +43,6 @@ int main() {
     std::cout << "Vous avez gagné la partie !" << std::endl;
   } else {
     std::cout << "L'ordinateur a gagné la partie !" << std::endl;
-  }
-
-  for (size_t i = 0; i < historiqueUtilisateur.size(); i++) {
-    std::cout << historiqueUtilisateur[i] << std::endl;
   }
 
   return 0;
