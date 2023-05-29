@@ -17,11 +17,12 @@ int main() {
   while (scoreUtilisateur < 3 && scoreOrdinateur < 3) {
     int choixUtilisateur = demanderChoixUtilisateur();
 
-    if (choixOrdinateur == 0) {
+    if (choixOrdinateur == 0) { // si l'ordi a joué Pierre au tour précédent
       choixOrdinateur = pierre();
-    } else if (choixOrdinateur == 1) {
+    } else if (choixOrdinateur ==
+               1) { // si l'ordi a joué Feuille au tour précédent
       choixOrdinateur = feuille();
-    } else {
+    } else { // si l'ordi a joué Ciseaux au tour précédent
       choixOrdinateur = ciseaux();
     }
 

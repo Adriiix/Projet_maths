@@ -8,7 +8,6 @@
 
 int de();
 int fac(int n);
-void binomialTheorique(int n, double p, int k);
 double bernoulli(double p, int k);
 bool simulerBernoulli(double p);
 double exponentielle(double lambda);
